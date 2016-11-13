@@ -459,6 +459,7 @@ function deploydocs(;
                         copy_script,
                         sha,
                     )
+                    cd(Pkg.dir("Documenter")) do; run(`git rev-parse HEAD`) end
                     println("="^80)
                     println(script)
                     println("="^80)
