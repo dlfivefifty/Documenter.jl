@@ -453,7 +453,7 @@ function deploydocs(;
                         temp,
                         upstream,
                         branch,
-                        ssh_script,
+                        "",
                         copy_script,
                         sha,
                     )
