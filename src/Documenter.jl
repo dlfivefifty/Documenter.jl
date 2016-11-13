@@ -489,7 +489,7 @@ buildscript(dir, upstream, branch, ssh_script, copy_script, sha) =
     $copy_script
 
     git add -A .
-    git commit -m "build based on $sha"
+    #git commit -m "build based on $sha"
 
     #git push -q upstream HEAD:$branch
     """
