@@ -458,7 +458,7 @@ function deploydocs(;
                         sha,
                     )
                     println(io, script); flush(io) # `flush`, otherwise `path` is empty.
-                    run(`sh $path`)
+                    #run(`sh $path`)
                     # Remove the unencrypted private key.
                     isfile(keyfile) && rm(keyfile)
                 end
