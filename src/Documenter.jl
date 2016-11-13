@@ -409,7 +409,7 @@ function deploydocs(;
                         openssl aes-256-cbc -K $key -iv $iv -in $keyfile.enc -out $keyfile -d
                         chmod 600 $keyfile
                         eval `ssh-agent -s`
-                        ssh-add $keyfile
+                        #ssh-add $keyfile
                         """
                     else
                         warn(
