@@ -491,7 +491,7 @@ buildscript(dir, upstream, branch, ssh_script, copy_script, sha) =
     git add -A .
     git commit -m "build based on $sha"
 
-    git push -q upstream HEAD:$branch
+    #git push -q upstream HEAD:$branch
     """
 
 function getenv(k::Regex)
