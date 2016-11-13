@@ -380,6 +380,9 @@ function deploydocs(;
                 tagged_dir = joinpath(temp, travis_tag)
 
                 keyfile, _ = splitext(ssh_key_file)
+                open(keyfile, "w") do io
+                    write(io, Compat.String(base64decode(documenter_key)))
+                end
                 target_dir = abspath(target)
 
                 # The upstream URL to which we push new content and the ssh decryption commands.
@@ -387,7 +390,6 @@ function deploydocs(;
                     if documenter_key != ""
                         "git@$(replace(repo, "github.com/", "github.com:"))",
                         """
-                        echo "$(Compat.String(base64decode(documenter_key)))" >> $keyfile
                         chmod 600 $keyfile
                         eval `ssh-agent -s`
                         ssh-add $keyfile
@@ -453,7 +455,7 @@ function deploydocs(;
                         temp,
                         upstream,
                         branch,
-                        "",
+                        ssh_script,
                         copy_script,
                         sha,
                     )
