@@ -392,7 +392,7 @@ function deploydocs(;
                         """
                         chmod 600 $keyfile
                         eval `ssh-agent -s`
-                        ssh-add $keyfile
+                        #ssh-add $keyfile
                         """
                     elseif has_ssh_key
                         warn(
