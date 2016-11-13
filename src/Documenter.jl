@@ -391,7 +391,7 @@ function deploydocs(;
                         "git@$(replace(repo, "github.com/", "github.com:"))",
                         """
                         chmod 600 $keyfile
-                        eval `ssh-agent -s`
+                        #eval `ssh-agent -s`
                         #ssh-add $keyfile
                         """
                     elseif has_ssh_key
@@ -408,7 +408,7 @@ function deploydocs(;
                         """
                         openssl aes-256-cbc -K $key -iv $iv -in $keyfile.enc -out $keyfile -d
                         chmod 600 $keyfile
-                        eval `ssh-agent -s`
+                        #eval `ssh-agent -s`
                         #ssh-add $keyfile
                         """
                     else
