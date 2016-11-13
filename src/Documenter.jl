@@ -457,6 +457,9 @@ function deploydocs(;
                         copy_script,
                         sha,
                     )
+                    println("="^80)
+                    println(script)
+                    println("="^80)
                     println(io, script); flush(io) # `flush`, otherwise `path` is empty.
                     run(`sh $path`)
                     # Remove the unencrypted private key.
@@ -480,16 +483,16 @@ buildscript(dir, upstream, branch, ssh_script, copy_script, sha) =
     git config user.name  "autodocs"
     git config user.email "autodocs"
 
-    git remote add upstream "$upstream"
+    #git remote add upstream "$upstream"
 
-    git fetch upstream
+    #git fetch upstream
 
-    git checkout -b $branch upstream/$branch
+    #git checkout -b $branch upstream/$branch
 
     $copy_script
 
     git add -A .
-    #git commit -m "build based on $sha"
+    git commit -m "build based on $sha"
 
     #git push -q upstream HEAD:$branch
     """
