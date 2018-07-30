@@ -450,7 +450,7 @@ function deploydocs(;
 
                         # Add, commit, and push the docs to the remote.
                         run(`git add -A .`)
-                        try run(`git commit -m "build based on $sha"`) end
+                        try run(`git commit -m "build based on $sha"`) catch; end
 
                         success(`git push -q upstream HEAD:$branch`) ||
                             error("could not push to remote repo.")
